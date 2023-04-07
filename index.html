@@ -1,65 +1,42 @@
-
 <!DOCTYPE html>
-<html lang="en" data-theme="cyberpunk">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSM-Arena.bd</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Movie App</title>
 </head>
-
 <body>
+    
     <header>
-        <h1 class="font-semibold text-5xl text-center py-10">Welcome to <span class="text-orange-600">GSM-Arena
-                BD</span>
-        </h1>
-        <div class="flex justify-end w-4/5 mx-auto">
-            <input id="searchField" type="text" placeholder="Type here"
-                class="input input-bordered w-full max-w-xs mx-5" />
-            <button id="searchBTN" class="btn btn-outline">Search</button>
-        </div>
+        <form  id="form">
+            <input type="text" placeholder="Search" id="search" class="search">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+        </form>
     </header>
+    <div id="tags"></div>
+    <div id="myNav" class="overlay">
 
-    <div id="notFound" class="alert alert-warning shadow-lg my-6 w-1/4 ml-20 hidden">
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            <span>No results found...!</span>
-        </div>
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content"></div>
+        
+        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a> 
+        
+        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
+
+      </div>
+    <main id="main"></main>
+    <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+
     </div>
-    <progress id="loader" class="progress hidden"></progress>
-
-    <div>
-        <!-- Put this part before </body> tag -->
-        <input type="checkbox" id="my-modal-4" class="modal-toggle" />
-        <label for="my-modal-4" class="modal cursor-pointer">
-            <label class="modal-box relative" for="">
-                <h1 class="text-2xl font-bold">Brand: <span id="phoneTitle"></span></h1>
-                <p class="text-lg font-semibold">Strorage: <span class="text-sm font-light" id="storage"></span></p>
-                <p class="text-lg font-semibold">Display: <span class="text-sm font-light" id="display"></span></p>
-                <p class="text-lg font-semibold">Chipset: <span class="text-sm font-light" id="chipset"></span></p>
-                <p class="text-lg font-semibold">Memory: <span class="text-sm font-light" id="memory"></span></p>
-                <p class="text-lg font-semibold">Sensor: <span class="text-sm font-light" id="sensor"></span></p>
-            </label>
-        </label>
-    </div>
-
-    <main class="w-4/5 mx-auto my-10">
-        <div class="flex justify-end">
-            <button id="show-all" class=" my-5 btn btn-ghost hidden">Show all</button>
-        </div>
-        <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-6">
-            <!-- dynamic cards here -->
-        </div>
-    </main>
 
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/715746b267.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
